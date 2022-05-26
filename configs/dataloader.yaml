@@ -1,0 +1,41 @@
+###########################################################
+#                Experiment Settings                      #
+###########################################################
+root_dir: '/userdata/rwang/gimlet_data'
+use_wandb: True
+train_filename: 'train_english_mimed.txt' # 'train_syn_gen_all.txt' # 'train_english_mimed.txt' #'train_syn_gen_all.txt' #'train_englishw_restricted_512.txt'
+test_filename: 'test_english_mimed.txt' #  'test_syn_gen_all.txt' # 'test_english_mimed.txt' #'test_syn_gen_all.txt' #'test_englishw_restricted_512.txt'
+
+###########################################################
+#                Dataloader Settings                      #
+###########################################################
+dataloader_params: 
+    input_types:
+        # - 'hgr_fixed3_gen_all_512'
+        # - 'spg_updated_padded_motion_traces_500_omar'
+        # - 'ema_padded_512_apr11'
+        - 'spc_gen_audio_scaled_512'
+
+    output_types:
+        # - 'hgr_fixed3_gen_all_512'
+        # - 'syn_gen_audio_scaled_512'
+        # - 'spg_updated_padded_motion_traces_500_omar'
+        # - 'ema_padded_512_apr11'
+        # - 'wav_gen_audio_scaled_512'
+        - 'spc_gen_audio_scaled_512'
+    train_batch_size: 64
+    test_batch_size: 16
+    subject: 'bravo1'
+    torch_transforms: 'spec_augment'
+    signal_length: 512 #512
+    window_length: 512 #512
+    shuffle_training_data: True
+    shuffle_test_data: False
+    train_data_fraction: 1.0
+    test_data_fraction: 1.0
+    use_test_set: True
+    num_train_workers: 1
+    num_test_workers: 1
+    pin_memory: False
+    variable_length_inputs: False
+    num_electrodes: 128                  # number of electrodes on the grid
